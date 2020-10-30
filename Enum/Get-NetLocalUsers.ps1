@@ -79,7 +79,7 @@ function Get-NetLocalUsers {
 
             if ($PSBoundParameters["Credential"]) {
 
-                Write-Verbose "[Get-NetLocalGroup] Using alternate PSCredential"
+                Write-Verbose "[Get-NetLocalUsers] Using alternate PSCredential"
                 $ADSIObject = New-Object System.DirectoryServices.DirectoryEntry -ArgumentList "WinNT://$ComputerName", $Credential.GetNetworkCredential().UserName, $Credential.GetNetworkCredential().Password
             } else {
 
@@ -87,7 +87,7 @@ function Get-NetLocalUsers {
             }
         } catch {
 
-            Write-Verbose "[Get-NetLocalGroup] Error while requesting $_"
+            Write-Verbose "[Get-NetLocalUsers] Error while requesting $_"
             return
         }
 
